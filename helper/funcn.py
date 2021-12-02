@@ -37,12 +37,11 @@ def stdr(seconds: int) -> str:
         hours = "0" + str(hours)
     if len(str(seconds)) == 1:
         seconds = "0" + str(seconds)
-    dur = (
+    return (
         ((str(hours) + ":") if hours else "00:")
         + ((str(minutes) + ":") if minutes else "00:")
         + ((str(seconds)) if seconds else "")
     )
-    return dur
 
 
 def ts(milliseconds: int) -> str:
@@ -119,10 +118,7 @@ async def duration_s(file):
     x = round(tsec / 5)
     y = round(tsec / 5 + 30)
     pin = stdr(x)
-    if y < tsec:
-        pon = stdr(y)
-    else:
-        pon = stdr(tsec)
+    pon = stdr(y) if y < tsec else stdr(tsec)
     return pin, pon
 
 

@@ -297,7 +297,7 @@ async def encod(event):
         COUNT.remove(user.id)
         await event.client.send_message(
             event.chat_id,
-            f"🐠DOWNLODING COMPLETED!!🐠",
+            '🐠DOWNLODING COMPLETED!!🐠',
             buttons=[
                 [
                     Button.inline("GENERATE SAMPLE", data=f"gsmpl{key}"),
@@ -307,6 +307,7 @@ async def encod(event):
                 [Button.inline("COMPRESS", data=f"sencc{key}")],
             ],
         )
+
     except BaseException as er:
         LOGS.info(er)
         return COUNT.remove(user.id)
